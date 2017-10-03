@@ -5,7 +5,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://0.0.0.0:1339
-      - ConnectionStrings:LeaderboardContext=Server=tcp:killer-apps.database.windows.net,1433;Initial Catalog=LeaderboardNETCore;Persist Security Info=False;User ID=sa;Password=abc123!@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+      - ConnectionStrings:LeaderboardContext=Server=tcp:killer-apps.database.windows.net,1433;Initial Catalog=LeaderboardNETCore;Persist Security Info=False;User ID=devcampnoord;Password=abc123!@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
     ports:
       - "1339:1339"
 
