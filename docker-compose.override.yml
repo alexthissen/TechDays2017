@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  leaderboard.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:1337
+      - ConnectionStrings:LeaderboardContext=Server=db1.internal.techdays2017.nl;Database=LeaderboardNETCore;User Id=sa;Password=Pass@word;Trusted_Connection=False
+    depends_on:
+      - "sql.data"
+    ports:
+      - "1337:1337"
+    networks:
+      - demonetwork
+          
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -U SA -P 'Pass@word' -Q 'select 1'
+      interval: 5s
+      retries: 30
+    networks:
+      demonetwork:
+        aliases:
+          - db1.internal.techdays2017.nl
+
+  gamingwebapp:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - LeaderboardWebApiBaseUrl=http://leaderboard.webapi:1337
+    ports:
+      - "8080:80"
+    networks:
+      - demonetwork
+
+networks:
+  demonetwork:
+    driver: bridge

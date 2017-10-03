@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<img src="https://www.techdays.nl/Content/images/techdays2017-facebook.png" width="300" />
+<h2>Highscore list</h2>
+<ul>
+    @foreach (var score in this.Model)
+    {
+        <li>@score.game:  @score.points - @score.nickname</li>
+    }
+</ul>
