@@ -1,17 +1,17 @@
-version: '3.1'
+version: '3'
 
 services:
-  leaderboardwebapi:
+  leaderboard.webapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://0.0.0.0:1339
-      - ConnectionStrings:LeaderboardContext=Server=tcp:killer-apps.database.windows.net,1433;Initial Catalog=LeaderboardNETCore;Persist Security Info=False;User ID=techdays2017;Password=abc123!@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+      - ConnectionStrings:LeaderboardContext=Server=tcp:killer-apps.database.windows.net,1433;Initial Catalog=LeaderboardNETCore;Persist Security Info=False;User ID=devcampnoord;Password=abc123!@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
     ports:
       - "1339:1339"
 
   gamingwebapp:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - LeaderboardWebApiBaseUrl=http://leaderboardwebapi:1339
+      - LeaderboardWebApiBaseUrl=http://leaderboard.webapi:1339
     ports:
       - "8089:80"

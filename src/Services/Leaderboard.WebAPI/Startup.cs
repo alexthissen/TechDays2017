@@ -22,8 +22,7 @@ namespace Leaderboard.WebAPI
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables()
-                .AddDockerSecrets();
+                .AddEnvironmentVariables();
             Configuration = builder.Build();
 
             //builder.AddAzureKeyVault();

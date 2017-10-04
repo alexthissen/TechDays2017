@@ -2,18 +2,13 @@ version: '3'
 
 services:
   leaderboard.webapi:
-    image: alexthissen/leaderboard.webapi
+    image: techdays2017/leaderboard.webapi
     build:
       context: ./src/Services/Leaderboard.WebAPI
       dockerfile: Dockerfile
-    depends_on:
-      - sql.data
-
-  sql.data:
-    image: microsoft/mssql-server-linux
 
   gamingwebapp:
-    image: alexthissen/gamingwebapp
+    image: techdays2017/gamingwebapp
     build:
       context: ./src/Applications/GamingWebApp
       dockerfile: Dockerfile

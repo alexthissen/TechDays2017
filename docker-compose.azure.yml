@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   leaderboardwebapi:
-    image: alexthissen/leaderboard.webapi
+    image: techdays2017/leaderboard.webapi
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://0.0.0.0:1339
@@ -11,7 +11,7 @@ services:
       - "1339:1339"
 
   gamingwebapp:
-    image: alexthissen/gamingwebapp
+    image: techdays2017/gamingwebapp
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - LeaderboardWebApiBaseUrl=http://leaderboardwebapi:1339
